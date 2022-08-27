@@ -1,0 +1,108 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Hub", "DarkTheme")
+local Tab = Window:NewTab("PP farm")
+local Section = Tab:NewSection("PP farm")
+Section:NewToggle("PP farm","vNCC1337 lox",function(f)
+getgenv().autoPp = f
+while true do wait(0.1)
+if not getgenv().autofs then return end
+local args = {
+    [1] = {
+        [1] = "+PP2"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+end)
+
+Section:NewToggle("FistCrystal","vNCC1337 lox",function(v)
+getgenv().autofs = v
+while true do wait(0.1)
+if not getgenv().autofs then return end
+local args = {
+    [1] = {
+        [1] = "+FS3"
+    }
+}
+
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+end)
+
+Section:NewToggle("PP1M farm","vNCC1337 lox",function(m)
+getgenv().autoPp = m
+while true do wait(0.1)
+if not getgenv().autofs then return end
+local args = {
+    [1] = {
+        [1] = "+PP3"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+end)
+
+local Tab = Window:NewTab("AutoResp")
+local Section = Tab:NewSection("AutoResp 50%")
+Section:NewToggle("Respawn 50Hp", "", function(da)
+ba = da
+  while  ba do task.wait()
+        game.Lighting.Blur.Enabled = false
+        game.Players.LocalPlayer.PlayerGui.IntroGui.Enabled = false
+        game.Players.LocalPlayer.PlayerGui.ScreenGui.Enabled = true
+        pcall(
+            function()
+                if
+                    game.Players.LocalPlayer.Character.Humanoid.Health <
+                    game.Players.LocalPlayer.Character.Humanoid.MaxHealth * .50
+                then
+                    local j = game.Players.LocalPlayer.Character:GetPrimaryPartCFrame()
+                    game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
+                    task.wait(1.7)
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(j)
+                    wait()
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(j)
+                    wait()
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(j)
+                end
+            end
+        )
+    end
+
+end)
+
+Section:NewToggle("Respawn 25Hp", "", function(da)
+ba = da
+  while  ba do task.wait()
+        game.Lighting.Blur.Enabled = false
+        game.Players.LocalPlayer.PlayerGui.IntroGui.Enabled = false
+        game.Players.LocalPlayer.PlayerGui.ScreenGui.Enabled = true
+        pcall(
+            function()
+                if
+                    game.Players.LocalPlayer.Character.Humanoid.Health <
+                    game.Players.LocalPlayer.Character.Humanoid.MaxHealth * .25
+                then
+                    local j = game.Players.LocalPlayer.Character:GetPrimaryPartCFrame()
+                    game.ReplicatedStorage.RemoteEvent:FireServer({"Respawn"})
+                    task.wait(1.7)
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(j)
+                    wait()
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(j)
+                    wait()
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(j)
+                end
+            end
+        )
+    end
+
+end)
+
+local T1 = Window:NewTab("Settings")
+local S1 = T1:NewSection("Settings")
+S1:NewKeybind("Close", "KeybindInfo", Enum.KeyCode.RightAlt, function()
+    Library:ToggleUI()
+end)
