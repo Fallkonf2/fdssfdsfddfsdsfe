@@ -101,6 +101,20 @@ ba = da
 
 end)
 
+local Tab = Window:NewTab("functions")
+local Section = Tab:NewSection("functions")
+Section:NewButton("Anti Void", "", function()
+game.Players.LocalPlayer.Character.RightHand.RightWrist:remove()
+end)
+
+Section:NewButton("God Mode", "", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/1ArcX/Scripts/main/God%20Mode", true))()
+end)
+
+Section:NewButton("DarkHub", "", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Fallkonf2/black-hub/main/darkhubfocs/fffffffffsd"))()
+end)
+
 local T1 = Window:NewTab("Settings")
 local S1 = T1:NewSection("Settings")
 S1:NewKeybind("Close", "KeybindInfo", Enum.KeyCode.RightAlt, function()
